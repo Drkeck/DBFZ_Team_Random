@@ -5,13 +5,12 @@ const btn = document.getElementById('btn');
 
 const roaster = Characters
 
-const ButtonHandler = (e) => {
-    
+let pointC = {name: "", num: 0, assist: ""};
+let midC = {name: "", num: 0, assist: "" };
+let anchorC = {name: "", num: 0, assist: ""};
+
+const ButtonHandler = (e) => {    
     let newRoaster = roaster.map(ele => ele.name)
-    
-    let pointC = {name: "", num: 0};
-    let midC = {name: "", num: 0 };
-    let anchorC = {name: "", num: 0};
 
     for (let i = 0; i < 3; i++) {
         let n = Math.floor(Math.random()*newRoaster.length)
@@ -20,20 +19,24 @@ const ButtonHandler = (e) => {
             
             pointC.name = newRoaster[n]
             pointC.num = n
+            pointC.assist = Math.floor(Math.random()*6/2)
+
         }
         else if (i === 1) {
             
             midC.name = newRoaster[n]
             midC.num = n
+            midC.assist = Math.floor(Math.random()*6/2)
             if (midC.name === pointC.name) {
                 i--
             }
+
         }
         else {
             
             anchorC.name = newRoaster[n]
             anchorC.num = n
-
+            anchorC.assist = Math.floor(Math.random()*6/2)
             if (anchorC.name === pointC.name || anchorC.name == midC.name) {
                 i--
             }
