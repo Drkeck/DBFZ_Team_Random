@@ -2,6 +2,7 @@ const point = document.getElementById('Point');
 const mid = document.getElementById('Mid');
 const anchor = document.getElementById('Anchor');
 const btn = document.getElementById('btn');
+const assistCheck = document.getElementById('assist');
 
 const roaster = Characters
 
@@ -29,6 +30,7 @@ let anchorC = team[2];
 
 
 
+
 function printTeam() {
     // this is where everything gets rendered, starting with point characters.
     for (let i = 0; i < 3; i++) {
@@ -38,20 +40,21 @@ function printTeam() {
         charTitle.replaceChildren(titleText);
 
         var charPort = document.createElement("img");
-
         var assistHtml = document.createElement("h3");
 
-        var assist = team[i].assist;
+        if(assistCheck.checked) { 
+            var assist = team[i].assist;
 
-        switch(assist) {
-            case 0:
-                assistHtml.textContent = "A Assist"
-                break
-            case 1:
-                assistHtml.textContent = "B Assist"
-                break
-            default:
-                assistHtml.textContent = "C Assist"
+            switch(assist) {
+                case 0:
+                    assistHtml.textContent = "A Assist"
+                    break
+                case 1:
+                    assistHtml.textContent = "B Assist"
+                    break
+                default:
+                    assistHtml.textContent = "C Assist"
+            }
         }
 
         switch(i) {
