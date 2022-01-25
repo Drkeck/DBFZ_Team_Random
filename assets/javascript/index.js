@@ -75,48 +75,6 @@ function printTeam() {
                 break
         }
     }
-
-    // var charTitle1 = document.createElement("h1")
-    // var titleText1 = document.createTextNode(pointC.name);
-    // charTitle1.appendChild(titleText1);
-    // point.replaceChildren(charTitle1);
-
-   
-
-    // ;
-    // var assistText = document.createTextNode(pointC.assist)
-    // assistHtml.appendChild(assistText)
-    // point.appendChild(assistHtml);
-
-    // // next mid characters.
-    // var charTitle2 = document.createElement("h1")
-    // var titleText2 = document.createTextNode(midC.name);
-    // charTitle2.appendChild(titleText2);
-    // mid.replaceChildren(charTitle2);
-
-    // var charPort2 = document.createElement("img")
-    // charPort2.src = "./assets/images/" + midC.num + ".png"
-    // mid.appendChild(charPort2)
-
-    // var assistHtml = document.createElement("h3");
-    // var assistText = document.createTextNode(midC.assist)
-    // assistHtml.appendChild(assistText)
-    // mid.appendChild(assistHtml);
-
-    // // and finally the anchor, i know a lot of the team terminology may be lost on some reading this its just a dbfz thing.
-    // var charTitle3 = document.createElement("h1")
-    // var titleText3 = document.createTextNode(anchorC.name);
-    // charTitle3.appendChild(titleText3);
-    // anchor.replaceChildren(charTitle3);
-
-    // var charPort3 = document.createElement("img")
-    // charPort3.src = "./assets/images/" + anchorC.num + ".png"
-    // anchor.appendChild(charPort3)
-
-    // var assistHtml = document.createElement("h3");
-    // var assistText = document.createTextNode(anchorC.assist)
-    // assistHtml.appendChild(assistText)
-    // anchor.appendChild(assistHtml);
 }
 
 const ButtonHandler = (e) => {    
