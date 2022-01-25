@@ -85,24 +85,19 @@ const ButtonHandler = (e) => {
         let n = Math.floor(Math.random()*newRoaster.length)
         
         if (i === 0) {
-            
             pointC.name = newRoaster[n]
             pointC.num = n
             pointC.assist = Math.floor(Math.random()*6/2)
-
         }
         else if (i === 1) {
-            
             midC.name = newRoaster[n]
             midC.num = n
             midC.assist = Math.floor(Math.random()*6/2)
             if (midC.name === pointC.name) {
                 i--
             }
-
         }
         else {
-            
             anchorC.name = newRoaster[n]
             anchorC.num = n
             anchorC.assist = Math.floor(Math.random()*6/2)
