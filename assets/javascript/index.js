@@ -28,9 +28,6 @@ let pointC = team[0];
 let midC = team[1];
 let anchorC = team[2];
 
-
-
-
 function printTeam() {
     // this is where everything gets rendered, starting with point characters.
     for (let i = 0; i < 3; i++) {
@@ -54,6 +51,7 @@ function printTeam() {
                     break
                 default:
                     assistHtml.textContent = "C Assist"
+                    break
             }
         }
 
