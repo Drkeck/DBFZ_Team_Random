@@ -6,6 +6,8 @@ const assistCheck = document.getElementById('assist');
 
 const roaster = Characters
 
+const lastTeam = []
+
 const team = [
     {
         name: "",
@@ -27,6 +29,12 @@ const team = [
 let pointC = team[0];
 let midC = team[1];
 let anchorC = team[2];
+
+function printLastTeam() {
+    for(let i = 0; i < 3; i++) {
+        // this is where we will build the element.
+    }
+}
 
 function printTeam() {
     // this is where everything gets rendered, starting with point characters.
@@ -78,9 +86,8 @@ function printTeam() {
     }
 }
 
-const ButtonHandler = (e) => {    
-    let newRoaster = roaster.map(ele => ele.name)
-
+function newTeam() {
+    let newRoaster = roaster.map(ele => ele.name) 
     for (let i = 0; i < 3; i++) {
         let n = Math.floor(Math.random()*newRoaster.length)
         
@@ -106,8 +113,21 @@ const ButtonHandler = (e) => {
             }
         }
     }
+}
 
-    printTeam()
+const ButtonHandler = (e) => {
+    // this is for saving the last team to refrence in a component
+    const currentTeam = [{num:team[0].num}, {num:team[1].num}, {num:team[2].num}] // save the team in a variable that isnt a reference.
+    lastTeam.pop()
+    lastTeam.pop()
+    lastTeam.pop()
+    lastTeam.push(...currentTeam) // take the non refernece and push it up.
+    console.log(lastTeam)   
+    // will work on this part later cause this is the only way i can get it to work so far
+    newTeam();
+    printTeam();
+    // this is when we build the last team element.
+    printLastTeam();
 }
 
 
