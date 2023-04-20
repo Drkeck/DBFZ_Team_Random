@@ -47,6 +47,7 @@ function printTeam() {
     // this is where everything gets rendered, starting with point characters.
     for (let i = 0; i < 3; i++) {
         var charTitle = document.createElement("h1");
+        charTitle.classList = "charName"
         var titleText = document.createTextNode(team[i].name);
 
         charTitle.replaceChildren(titleText);
@@ -130,13 +131,13 @@ const ButtonHandler = (e) => {
         lastTeam.pop()
         lastTeam.pop()
         lastTeam.push(...currentTeam) // take the non refernece and push it up.
-        console.log(lastTeam)
+
+        // this is when we build the last team element.
+        printLastTeam()
     }
     // will work on this part later cause this is the only way i can get it to work so far
     newTeam();
     printTeam();
-    // this is when we build the last team element.
-    printLastTeam();
 }
 
 
