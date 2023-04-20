@@ -127,5 +127,8 @@ const Characters = [
         },
         {
             "name": "Gogeta (SS4)"
+        },
+        {
+            "name": "Android 21 (Lab Coat)"
         }
     ]
