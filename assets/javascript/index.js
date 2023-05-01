@@ -10,6 +10,8 @@ const roaster = Characters
 
 const lastTeam = []
 
+const blacklist = []
+
 const team = [
     {
         name: "",
