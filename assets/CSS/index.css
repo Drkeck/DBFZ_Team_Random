@@ -77,6 +77,19 @@ img {
 }
 
 .padding {
+    margin: 5px auto;
+    padding: 0 1%;
+    width: fit-content;
+    background-color: var(--backdrop);
+    border-radius: 10px;
+}
+
+.checks {
+    display: flex;
+    justify-content: space-around;
+}
+
+.dlcList {
     margin: 10px auto;
     padding: 0 1%;
     width: fit-content;
@@ -84,15 +97,26 @@ img {
     border-radius: 10px;
 }
 
+.listElements {
+    text-decoration: none;
+    list-style: none;
+    text-align: start;
+    padding-bottom: 10px;
+}
+
 label {
     background-color: rgba(0, 0, 0, 0);
     text-shadow: black 1px 0 10px;
 }
 
+.center {
+    margin: 0 auto;
+    width: fit-content;
+}
+
 .btn-light {
     color: white;
     background-color: var(--backdrop);
-    margin-bottom: 10%;
     text-shadow: black 1px 0 10px;
 }
 

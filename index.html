@@ -42,14 +42,14 @@
             <label for="assist">Randomize Assists?</label>
         </div>
     </div>
-    <section class="padding">
+    <div class="padding">
         <div class="options">
             <input type="checkbox" name="android21" id="android21" checked>
             <label for="android21">Android 21</label>
         </div>
-    </section>
+    </div>
     <div class="checks">
-        <section class="padding">
+        <section class="dlcList">
             <div class="options">
                 <input type="checkbox" name="season-1" id="season-1" checked>
                 <label for="season-1">Season 1 Pass</label>
@@ -89,12 +89,12 @@
                 </li>
             </ul>
         </section>
-        <section class="padding">
+        <section class="dlcList">
             <div class="options">
                 <input type="checkbox" name="season-2" id="season-2" checked>
                 <label for="season-2">Season 2 Pass</label>
             </div>
-            <ul>
+            <ul class="listElements">
                 <li>
                     <input type="checkbox" name="jiren" id="jiren" checked>
                     <label for="jiren">Jiren</label>
@@ -126,12 +126,12 @@
                 </li>
             </ul>
         </section>
-        <section class="padding">
+        <section class="dlcList">
             <div class="options">
                 <input type="checkbox" name="season-3" id="season-3" checked>
                 <label for="season-3">Season 3 Pass</label>
             </div>
-            <ul>
+            <ul class="listElements">
 
                 <li>
                     <input type="checkbox" name="kefla" id="kefla" checked>
@@ -161,8 +161,9 @@
             </ul>
         </section>
     </div>
-    <button class="btn btn-light" id="btn">randomize</button>
-
+    <div class="center">
+        <button class="btn btn-light" id="btn">randomize</button>
+    </div>
     <script type="text/javascript" src="./roaster.js"></script>
     <script type="text/javascript" src="./assets/javascript/index.js"></script>
 </body>
