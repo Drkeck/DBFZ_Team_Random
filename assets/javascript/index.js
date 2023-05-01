@@ -16,6 +16,8 @@ const seasonTwolist = document.getElementById('season-2-list')
 //
 const seasonThree = document.getElementById('season-3')
 const seasonThreelist = document.getElementById('season-3-list')
+//
+const a21check = document.getElementById('android21')
 
 // last roll layer
 const lastRoll = document.getElementById('lastRoll');
@@ -54,7 +56,7 @@ function checkerHandler(children, checked) {
     for (let i = 0; i < children.length; i++) {
         const child = children[i].children[0]
         child.checked = checked
-        if(!checked) {
+        if (!checked) {
             blacklist.push(child.value)
             continue
         }
@@ -71,7 +73,7 @@ function checkerHandler(children, checked) {
 function checkboxHandler(e) {
     const name = e.target.name;
     const checked = e.target.checked;
-    switch(name) {
+    switch (name) {
         case 'season-1':
             checkerHandler(seasonOnelist.children, checked)
 
@@ -85,11 +87,12 @@ function checkboxHandler(e) {
 
             break
         default:
-            if(checked != undefined){
-                checkerHandler([{children: [e.target]}], e.target.checked)
+            if (checked != undefined) {
+                checkerHandler([{ children: [e.target] }], e.target.checked)
             }
             break
     }
+    console.log(name, checked, blacklist)
 }
 
 function printLastTeam() {
@@ -169,10 +172,13 @@ function printTeam() {
     }
 }
 
+
 function newTeam() {
-    let newRoaster = roaster.map(ele => ele.name)
-    for (let i = 0; i < 3; i++) {
+    let newRoaster = roaster.map(ele => ele);
+    let bool = false
+    for (let i = 0; i < 3;) {
         let n = Math.floor(Math.random() * newRoaster.length)
+        bool = false
 
         // =================================
         // need to add a way of validating against blacklist array.
@@ -181,26 +187,38 @@ function newTeam() {
         // 5/1/2023 
         // =================================
 
+        blacklist.forEach(ele => {
+            const isSame = (ele == newRoaster[n].num)
+
+            if (isSame) {
+                bool = true
+            }
+        })
+
         if (i === 0) {
-            pointC.name = newRoaster[n]
-            pointC.num = n
+            pointC.name = newRoaster[n].name
+            pointC.num = newRoaster[n].num
             pointC.assist = Math.floor(Math.random() * 6 / 2)
         }
         else if (i === 1) {
-            midC.name = newRoaster[n]
-            midC.num = n
+            midC.name = newRoaster[n].name
+            midC.num = newRoaster[n].num
             midC.assist = Math.floor(Math.random() * 6 / 2)
             if (midC.name === pointC.name) {
                 i--
             }
         }
         else {
-            anchorC.name = newRoaster[n]
-            anchorC.num = n
+            anchorC.name = newRoaster[n].name
+            anchorC.num = newRoaster[n].num
             anchorC.assist = Math.floor(Math.random() * 6 / 2)
             if (anchorC.name === pointC.name || anchorC.name == midC.name) {
                 i--
             }
+        }
+
+        if (!bool) {
+            i++
         }
     }
 }
@@ -231,3 +249,4 @@ seasonThree.addEventListener("click", checkboxHandler)
 seasonOnelist.addEventListener("click", checkboxHandler)
 seasonTwolist.addEventListener("click", checkboxHandler)
 seasonThreelist.addEventListener("click", checkboxHandler)
+a21check.addEventListener("click", checkboxHandler)
