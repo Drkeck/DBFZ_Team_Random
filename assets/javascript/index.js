@@ -178,6 +178,13 @@ function newTeam() {
     for (let i = 0; i < 3; i++) {
         let n = Math.floor(Math.random() * newRoaster.length)
 
+        // =================================
+        // need to add a way of validating against blacklist array.
+        // sure there area plenty of ways of doing this one.
+        // not sure how i am able to do it currently will check back later
+        // 5/1/2023 
+        // =================================
+
         if (i === 0) {
             pointC.name = newRoaster[n]
             pointC.num = n
