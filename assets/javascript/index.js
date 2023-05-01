@@ -92,7 +92,6 @@ function checkboxHandler(e) {
             }
             break
     }
-    console.log(name, checked, blacklist)
 }
 
 function printLastTeam() {
