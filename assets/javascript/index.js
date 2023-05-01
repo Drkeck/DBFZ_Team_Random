@@ -51,6 +51,7 @@ let midC = team[1];
 let anchorC = team[2];
 
 function checkerHandler(children, checked) {
+    console.log(children[0].children[0])
     for (let i = 0; i < children.length; i++) {
         const child = children[i].children[0]
         child.checked = checked
@@ -73,7 +74,7 @@ function checkerHandler(children, checked) {
 
 function checkboxHandler(e) {
     const name = e.target.name;
-    const checked = e.target.checked
+    const checked = e.target.checked;
     switch(name) {
         case 'season-1':
             checkerHandler(seasonOnelist.children, checked)
@@ -88,7 +89,9 @@ function checkboxHandler(e) {
 
             break
         default:
-            console.log(name)
+            if(checked != undefined){
+                checkerHandler([{children: [e.target]}], e.target.checked)
+            }
             break
     }
 }
@@ -222,3 +225,6 @@ btn.addEventListener("click", ButtonHandler)
 seasonOne.addEventListener("click", checkboxHandler)
 seasonTwo.addEventListener("click", checkboxHandler)
 seasonThree.addEventListener("click", checkboxHandler)
+seasonOnelist.addEventListener("click", checkboxHandler)
+seasonTwolist.addEventListener("click", checkboxHandler)
+seasonThreelist.addEventListener("click", checkboxHandler)
