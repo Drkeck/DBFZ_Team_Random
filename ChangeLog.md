@@ -1,3 +1,14 @@
+# version 1.3 apr 30 2023
+
+## **Notes**:
+Wanted to add a few features to the site that would help out those who may not have all ther characters in the game, as well as a way to keep track of the assists that the last team was using.
+
+### **Added**:
+- **Assists** have been added the last roll section **IF** you have assists set to be rolled.
+
+
+### **Changed**:
+
 # version 1.2 apr 19 2023
 
 ## **Notes**:

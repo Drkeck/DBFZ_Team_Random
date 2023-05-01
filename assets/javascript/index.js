@@ -40,18 +40,20 @@ function printLastTeam() {
         // =Container=
         var characterContainer = document.createElement("div");
 
-        // =Assist=
-        var assistContainer = document.createElement("h4")
-        assistContainer.innerText = lastTeam[i].assist === 0 ? 'A' : lastTeam[i].assist === 1 ? 'B' : 'C'
-        
         // =Image=
         var lastCharacter = document.createElement("img");
         lastCharacter.src = "./assets/images/" + lastTeam[i].num + ".png";
+        characterContainer.appendChild(lastCharacter);
+
+        // =Assist=
+        if (assistCheck.checked) {
+            var assistContainer = document.createElement("h4");
+            assistContainer.innerText = lastTeam[i].assist === 0 ? 'A' : lastTeam[i].assist === 1 ? 'B' : 'C';
+            characterContainer.appendChild(assistContainer);
+        }
 
         // =Append=
-        characterContainer.appendChild(lastCharacter)
-        characterContainer.appendChild(assistContainer)
-        lastRoll.appendChild(characterContainer)
+        lastRoll.appendChild(characterContainer);
     }
     hidden.classList = "oldTeam"
 }
