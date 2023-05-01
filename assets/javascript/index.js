@@ -35,10 +35,23 @@ let anchorC = team[2];
 function printLastTeam() {
     lastRoll.replaceChildren()
     for (let i = 0; i < 3; i++) {
-        // this is where we will build the element.
+        // This is where we will build the element.
+
+        // =Container=
+        var characterContainer = document.createElement("div");
+
+        // =Assist=
+        var assistContainer = document.createElement("h4")
+        assistContainer.innerText = lastTeam[i].assist === 0 ? 'A' : lastTeam[i].assist === 1 ? 'B' : 'C'
+        
+        // =Image=
         var lastCharacter = document.createElement("img");
-        lastCharacter.src = "./assets/images/" + lastTeam[i].num + ".png"
-        lastRoll.appendChild(lastCharacter)
+        lastCharacter.src = "./assets/images/" + lastTeam[i].num + ".png";
+
+        // =Append=
+        characterContainer.appendChild(lastCharacter)
+        characterContainer.appendChild(assistContainer)
+        lastRoll.appendChild(characterContainer)
     }
     hidden.classList = "oldTeam"
 }
@@ -126,7 +139,7 @@ function newTeam() {
 const ButtonHandler = (e) => {
     // this is for saving the last team to refrence in a component
     if (team[0].name) {
-        const currentTeam = [{ num: team[0].num }, { num: team[1].num }, { num: team[2].num }] // save the team in a variable that isnt a reference.
+        const currentTeam = [{ num: team[0].num, assist: team[0].assist }, { num: team[1].num, assist: team[0].assist }, { num: team[2].num, assist: team[2].assist }] // save the team in a variable that isnt a reference.
         lastTeam.pop()
         lastTeam.pop()
         lastTeam.pop()
