@@ -51,16 +51,13 @@ let midC = team[1];
 let anchorC = team[2];
 
 function checkerHandler(children, checked) {
-    console.log(children[0].children[0])
     for (let i = 0; i < children.length; i++) {
         const child = children[i].children[0]
         child.checked = checked
         if(!checked) {
-            console.log('push', checked)
             blacklist.push(child.value)
             continue
         }
-        console.log('pop', checked)
         const newlist = blacklist.filter(list => {
             if (child.value === list) {
                 return
@@ -69,7 +66,6 @@ function checkerHandler(children, checked) {
         })
         blacklist = newlist
     }
-    console.log(blacklist)
 }
 
 function checkboxHandler(e) {
