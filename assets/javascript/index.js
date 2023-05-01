@@ -1,16 +1,32 @@
+// team positons
 const point = document.getElementById('Point');
 const mid = document.getElementById('Mid');
 const anchor = document.getElementById('Anchor');
+
+// interation layer
 const btn = document.getElementById('btn');
 const assistCheck = document.getElementById('assist');
+
+// seasons
+const seasonOne = document.getElementById('season-1')
+const seasonOnelist = document.getElementById('season-1-list')
+//
+const seasonTwo = document.getElementById('season-2')
+const seasonTwolist = document.getElementById('season-2-list')
+//
+const seasonThree = document.getElementById('season-3')
+const seasonThreelist = document.getElementById('season-3-list')
+
+// last roll layer
 const lastRoll = document.getElementById('lastRoll');
 const hidden = document.getElementById('hidden')
 
+// characters from roaster.js
 const roaster = Characters
 
 const lastTeam = []
 
-const blacklist = []
+let blacklist = []
 
 const team = [
     {
@@ -33,6 +49,49 @@ const team = [
 let pointC = team[0];
 let midC = team[1];
 let anchorC = team[2];
+
+function checkerHandler(children, checked) {
+    for (let i = 0; i < children.length; i++) {
+        const child = children[i].children[0]
+        child.checked = checked
+        if(!checked) {
+            console.log('push', checked)
+            blacklist.push(child.value)
+            continue
+        }
+        console.log('pop', checked)
+        const newlist = blacklist.filter(list => {
+            if (child.value === list) {
+                return
+            }
+            return list
+        })
+        blacklist = newlist
+    }
+    console.log(blacklist)
+}
+
+function checkboxHandler(e) {
+    const name = e.target.name;
+    const checked = e.target.checked
+    switch(name) {
+        case 'season-1':
+            checkerHandler(seasonOnelist.children, checked)
+
+            break
+        case 'season-2':
+            checkerHandler(seasonTwolist.children, checked)
+
+            break
+        case 'season-3':
+            checkerHandler(seasonThreelist.children, checked)
+
+            break
+        default:
+            console.log(name)
+            break
+    }
+}
 
 function printLastTeam() {
     lastRoll.replaceChildren()
@@ -160,3 +219,6 @@ const ButtonHandler = (e) => {
 
 
 btn.addEventListener("click", ButtonHandler)
+seasonOne.addEventListener("click", checkboxHandler)
+seasonTwo.addEventListener("click", checkboxHandler)
+seasonThree.addEventListener("click", checkboxHandler)
