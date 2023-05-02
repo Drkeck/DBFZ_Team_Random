@@ -18,7 +18,7 @@ body {
 .title-row {
     margin: 80px auto 0;
     width: 80%;
-    background-color: var(--backdrop);
+    background: linear-gradient(0.25turn,var(--backdrop), rgba(255, 255, 255, -0.548), var(--backdrop));
     border-radius: 20px;
     padding: 5px;
 }
@@ -44,15 +44,15 @@ img {
     height: fit-content;
     margin: 20px 2%;
     padding: 20px 0;
-    background-color: var(--backdrop);
-    border-radius: 50px;
+    background: linear-gradient(0.9turn, var(--backdrop), rgba(255, 255, 255, -0.548),var(--backdrop));
+    border-radius: 30px;
 }
 
 .oldTeam {
     width: 40%;
     margin: 20px auto;
     padding: 10px;
-    background-color: var(--backdrop);
+    background: linear-gradient(0.1turn, var(--backdrop), rgba(255, 255, 255, -0.548));
     border-radius: 10px;
 }
 
@@ -72,7 +72,6 @@ img {
 }
 
 .options {
-    background-color: var(--backdrop);
     padding: 5% 0;
     width: fit-content;
     height: 40px;
@@ -82,8 +81,9 @@ img {
     margin: 5px auto;
     padding: 0 1%;
     width: fit-content;
-    background-color: var(--backdrop);
+    background: linear-gradient(0.4turn, var(--backdrop), rgba(255, 255, 255, -0.548),rgba(255, 255, 255, 0.4));
     border-radius: 10px;
+    box-shadow: 0px 0px 50px burlywood;
 }
 
 .checks {
@@ -95,8 +95,9 @@ img {
     margin: 10px auto;
     padding: 0 1%;
     width: fit-content;
-    background-color: var(--backdrop);
+    background: linear-gradient(0.4turn, var(--backdrop), rgba(255, 255, 255, -0.548),rgba(255, 255, 255, 0.1));
     border-radius: 10px;
+    box-shadow: -25px -25px 177px burlywood;
 }
 
 .listElements {
