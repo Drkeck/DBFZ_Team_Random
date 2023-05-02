@@ -1,134 +1,178 @@
 const Characters = [
         {
-            "name": "Goku (SSJ)"
+            "name": "Goku (SSJ)",
+            "num": 0
         },
         {
-            "name": "Vegeta (SSJ)"
+            "name": "Vegeta (SSJ)",
+            "num": 1
         },
         {
-            "name": "Piccolo"
+            "name": "Piccolo",
+            "num": 2
         },
         {
-            "name": "Teen gohan"
+            "name": "Teen gohan",
+            "num": 3
         },
         {
-            "name": "Frieza"
+            "name": "Frieza",
+            "num": 4
         },
         {
-            "name": "Ginyu"
+            "name": "Ginyu",
+            "num": 5
         },
         {
-            "name": "Trunks"
+            "name": "Trunks",
+            "num": 6
         },
         {
-            "name": "Cell"
+            "name": "Cell",
+            "num": 7
         },
         {
-            "name": "Android 18"
+            "name": "Android 18",
+            "num": 8
         },
         {
-            "name": "Gotenks"
+            "name": "Gotenks",
+            "num": 9
         },
         {
-            "name": "Krillin"
+            "name": "Krillin",
+            "num": 10
         },
         {
-            "name": "Kid Buu"
+            "name": "Kid Buu",
+            "num": 11
         },
         {
-            "name": "Majin Buu"
+            "name": "Majin Buu",
+            "num": 12
         },
         {
-            "name": "Nappa"
+            "name": "Nappa",
+            "num": 13
         },
         {
-            "name": "Android 16"
+            "name": "Android 16",
+            "num": 14
         },
         {
-            "name": "Yamcha"
+            "name": "Yamcha",
+            "num": 15
         },
         {
-            "name": "Tien"
+            "name": "Tien",
+            "num": 16
         },
         {
-            "name": "Adult gohan"
+            "name": "Adult gohan",
+            "num": 17
         },
         {
-            "name": "Hit"
+            "name": "Hit",
+            "num": 18
         },
         {
-            "name": "Goku (SSGSS)"
+            "name": "Goku (SSGSS)",
+            "num": 19
         },
         {
-            "name": "Vegeta (SSGSS)"
+            "name": "Vegeta (SSGSS)",
+            "num": 20
         },
         {
-            "name": "Beerus"
+            "name": "Beerus",
+            "num": 21
         },
         {
-            "name": "Goku black"
+            "name": "Goku black",
+            "num": 22
         },
         {
-            "name": "Android 21"
+            "name": "Android 21",
+            "num": 23
         },
         {
-            "name": "Goku"
+            "name": "Goku",
+            "num": 24
         },
         {
-            "name": "Vegeta"
+            "name": "Vegeta",
+            "num": 25
         },
         {
-            "name": "Broly (DBZ)"
+            "name": "Broly (DBZ)",
+            "num": 26
         },
         {
-            "name": "Zamasu"
+            "name": "Zamasu",
+            "num": 27
         },
         {
-            "name": "Bardock"
+            "name": "Bardock",
+            "num": 28
         },
         {
-            "name": "Vegetio"
+            "name": "Vegetio",
+            "num": 29
         },
         {
-            "name": "Android 17"
+            "name": "Android 17",
+            "num": 30
         },
         {
-            "name": "Cooler"
+            "name": "Cooler",
+            "num": 31
         },
         {
-            "name": "Jiren"
+            "name": "Jiren",
+            "num": 32
         },
         {
-            "name": "Videl"
+            "name": "Videl",
+            "num": 33
         },
         {
-            "name": "Goku (GT)"
+            "name": "Goku (GT)",
+            "num": 34
         },
         {
-            "name": "Junemba"
+            "name": "Junemba",
+            "num": 35
         },
         {
-            "name": "Gogeta (SSGSS)"
+            "name": "Gogeta (SSGSS)",
+            "num": 36
         },
         {
-            "name": "Broly (DBS)"
+            "name": "Broly (DBS)",
+            "num": 37
         },
         {
-            "name": "Kefla"
+            "name": "Kefla",
+            "num": 38
         },
         {
-            "name": "Goku (ui)"
+            "name": "Goku (ui)",
+            "num": 39
         },
         {
-            "name": "Master Roshi"
+            "name": "Master Roshi",
+            "num": 40
         },
         {
-            "name": "Super Baby 2"
+            "name": "Super Baby 2",
+            "num": 41
         },
         {
-            "name": "Gogeta (SS4)"
+            "name": "Gogeta (SS4)",
+            "num": 42
         },
         {
-            "name": "Android 21 (Lab Coat)"
+            "name": "Android 21 (Lab Coat)",
+            "num": 43
         }
     ]

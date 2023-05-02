@@ -11,12 +11,14 @@ html {
 
 body {
     background: none;
+    max-width: 1440px;
+    margin: 0 auto;
 }
 
 .title-row {
-    margin: 150px auto 0;
-    width: 72vw;
-    background-color: var(--backdrop);
+    margin: 80px auto 0;
+    width: 80%;
+    background: linear-gradient(0.25turn,var(--backdrop), rgba(255, 255, 255, -0.548), var(--backdrop));
     border-radius: 20px;
     padding: 5px;
 }
@@ -42,16 +44,15 @@ img {
     height: fit-content;
     margin: 20px 2%;
     padding: 20px 0;
-    background-color: var(--backdrop);
-    border-radius: 50px;
+    background: linear-gradient(0.9turn, var(--backdrop), rgba(255, 255, 255, -0.548),var(--backdrop));
+    border-radius: 30px;
 }
 
 .oldTeam {
     width: 40%;
     margin: 20px auto;
-    height: 150px;
     padding: 10px;
-    background-color: var(--backdrop);
+    background: linear-gradient(0.1turn, var(--backdrop), rgba(255, 255, 255, -0.548));
     border-radius: 10px;
 }
 
@@ -71,18 +72,39 @@ img {
 }
 
 .options {
-    background-color: var(--backdrop);
     padding: 5% 0;
     width: fit-content;
     height: 40px;
 }
 
 .padding {
+    margin: 5px auto;
+    padding: 0 1%;
+    width: fit-content;
+    background: linear-gradient(0.4turn, var(--backdrop), rgba(255, 255, 255, -0.548),rgba(255, 255, 255, 0.4));
+    border-radius: 10px;
+    box-shadow: 0px 0px 50px burlywood;
+}
+
+.checks {
+    display: flex;
+    justify-content: space-around;
+}
+
+.dlcList {
     margin: 10px auto;
     padding: 0 1%;
     width: fit-content;
-    background-color: var(--backdrop);
+    background: linear-gradient(0.4turn, var(--backdrop), rgba(255, 255, 255, -0.548),rgba(255, 255, 255, 0.1));
     border-radius: 10px;
+    box-shadow: -25px -25px 177px burlywood;
+}
+
+.listElements {
+    text-decoration: none;
+    list-style: none;
+    text-align: start;
+    padding-bottom: 10px;
 }
 
 label {
@@ -90,10 +112,14 @@ label {
     text-shadow: black 1px 0 10px;
 }
 
+.center {
+    margin: 0 auto;
+    width: fit-content;
+}
+
 .btn-light {
     color: white;
     background-color: var(--backdrop);
-    margin-bottom: 10%;
     text-shadow: black 1px 0 10px;
 }
 
@@ -120,7 +146,7 @@ label {
 
 @media screen and (max-width: 680px) {
     .title-row {
-        margin: 50% auto 0;
+        margin: 20% auto 0;
     }
 
     .Container {

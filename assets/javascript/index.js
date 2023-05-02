@@ -1,14 +1,34 @@
+// team positons
 const point = document.getElementById('Point');
 const mid = document.getElementById('Mid');
 const anchor = document.getElementById('Anchor');
+
+// interation layer
 const btn = document.getElementById('btn');
 const assistCheck = document.getElementById('assist');
+
+// seasons
+const seasonOne = document.getElementById('season-1')
+const seasonOnelist = document.getElementById('season-1-list')
+//
+const seasonTwo = document.getElementById('season-2')
+const seasonTwolist = document.getElementById('season-2-list')
+//
+const seasonThree = document.getElementById('season-3')
+const seasonThreelist = document.getElementById('season-3-list')
+//
+const a21check = document.getElementById('android21')
+
+// last roll layer
 const lastRoll = document.getElementById('lastRoll');
 const hidden = document.getElementById('hidden')
 
+// characters from roaster.js
 const roaster = Characters
 
 const lastTeam = []
+
+let blacklist = []
 
 const team = [
     {
@@ -32,13 +52,70 @@ let pointC = team[0];
 let midC = team[1];
 let anchorC = team[2];
 
+function checkerHandler(children, checked) {
+    for (let i = 0; i < children.length; i++) {
+        const child = children[i].children[0]
+        child.checked = checked
+        if (!checked) {
+            blacklist.push(child.value)
+            continue
+        }
+        const newlist = blacklist.filter(list => {
+            if (child.value === list) {
+                return
+            }
+            return list
+        })
+        blacklist = newlist
+    }
+}
+
+function checkboxHandler(e) {
+    const name = e.target.name;
+    const checked = e.target.checked;
+    switch (name) {
+        case 'season-1':
+            checkerHandler(seasonOnelist.children, checked)
+
+            break
+        case 'season-2':
+            checkerHandler(seasonTwolist.children, checked)
+
+            break
+        case 'season-3':
+            checkerHandler(seasonThreelist.children, checked)
+
+            break
+        default:
+            if (checked != undefined) {
+                checkerHandler([{ children: [e.target] }], e.target.checked)
+            }
+            break
+    }
+}
+
 function printLastTeam() {
     lastRoll.replaceChildren()
     for (let i = 0; i < 3; i++) {
-        // this is where we will build the element.
+        // This is where we will build the element.
+
+        // =Container=
+        var characterContainer = document.createElement("div");
+
+        // =Image=
         var lastCharacter = document.createElement("img");
-        lastCharacter.src = "./assets/images/" + lastTeam[i].num + ".png"
-        lastRoll.appendChild(lastCharacter)
+        lastCharacter.src = "./assets/images/" + lastTeam[i].num + ".png";
+        characterContainer.appendChild(lastCharacter);
+
+        // =Assist=
+        if (assistCheck.checked) {
+            var assistContainer = document.createElement("h4");
+            assistContainer.innerText = lastTeam[i].assist === 0 ? 'A' : lastTeam[i].assist === 1 ? 'B' : 'C';
+            characterContainer.appendChild(assistContainer);
+        }
+
+        // =Append=
+        lastRoll.appendChild(characterContainer);
     }
     hidden.classList = "oldTeam"
 }
@@ -94,31 +171,53 @@ function printTeam() {
     }
 }
 
+
 function newTeam() {
-    let newRoaster = roaster.map(ele => ele.name)
-    for (let i = 0; i < 3; i++) {
+    let newRoaster = roaster.map(ele => ele);
+    let bool = false
+    for (let i = 0; i < 3;) {
         let n = Math.floor(Math.random() * newRoaster.length)
+        bool = false
+
+        // =================================
+        // need to add a way of validating against blacklist array.
+        // sure there area plenty of ways of doing this one.
+        // not sure how i am able to do it currently will check back later
+        // 5/1/2023 
+        // =================================
+
+        blacklist.forEach(ele => {
+            const isSame = (ele == newRoaster[n].num)
+
+            if (isSame) {
+                bool = true
+            }
+        })
 
         if (i === 0) {
-            pointC.name = newRoaster[n]
-            pointC.num = n
+            pointC.name = newRoaster[n].name
+            pointC.num = newRoaster[n].num
             pointC.assist = Math.floor(Math.random() * 6 / 2)
         }
         else if (i === 1) {
-            midC.name = newRoaster[n]
-            midC.num = n
+            midC.name = newRoaster[n].name
+            midC.num = newRoaster[n].num
             midC.assist = Math.floor(Math.random() * 6 / 2)
             if (midC.name === pointC.name) {
                 i--
             }
         }
         else {
-            anchorC.name = newRoaster[n]
-            anchorC.num = n
+            anchorC.name = newRoaster[n].name
+            anchorC.num = newRoaster[n].num
             anchorC.assist = Math.floor(Math.random() * 6 / 2)
             if (anchorC.name === pointC.name || anchorC.name == midC.name) {
                 i--
             }
+        }
+
+        if (!bool) {
+            i++
         }
     }
 }
@@ -126,7 +225,7 @@ function newTeam() {
 const ButtonHandler = (e) => {
     // this is for saving the last team to refrence in a component
     if (team[0].name) {
-        const currentTeam = [{ num: team[0].num }, { num: team[1].num }, { num: team[2].num }] // save the team in a variable that isnt a reference.
+        const currentTeam = [{ num: team[0].num, assist: team[0].assist }, { num: team[1].num, assist: team[0].assist }, { num: team[2].num, assist: team[2].assist }] // save the team in a variable that isnt a reference.
         lastTeam.pop()
         lastTeam.pop()
         lastTeam.pop()
@@ -143,3 +242,10 @@ const ButtonHandler = (e) => {
 
 
 btn.addEventListener("click", ButtonHandler)
+seasonOne.addEventListener("click", checkboxHandler)
+seasonTwo.addEventListener("click", checkboxHandler)
+seasonThree.addEventListener("click", checkboxHandler)
+seasonOnelist.addEventListener("click", checkboxHandler)
+seasonTwolist.addEventListener("click", checkboxHandler)
+seasonThreelist.addEventListener("click", checkboxHandler)
+a21check.addEventListener("click", checkboxHandler)

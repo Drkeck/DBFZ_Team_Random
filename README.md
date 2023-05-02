@@ -1,4 +1,4 @@
-# DBFZ_Team_Random
+# DBFZ_Team_Random V 1.3
 Built this for my free time, me and a good friend of mine like to roll random teams in Dragonball FighterZ since we have been playing the game against each other for just over 2 years now.
 
 # built with:
