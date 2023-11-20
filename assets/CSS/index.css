@@ -3,10 +3,10 @@
 }
 
 html {
-    background: radial-gradient(rgba(255, 140, 0, 0.5) 0%, darkorange 70%), url("../background/dragon-ball-fighterz-switch-hero.jpg");
-    background-size: cover;
+    background: radial-gradient(rgba(255, 140, 0, 0.5) 0%, darkorange 50%), url("../background/dragon-ball-fighterz-switch-hero.jpg");
+    background-position: center;
     background-repeat: no-repeat;
-    height: 100vh;
+    background-color: darkorange;
 }
 
 body {
@@ -41,6 +41,7 @@ img {
 }
 
 .Container {
+    min-height: 342px;
     height: fit-content;
     margin: 20px 2%;
     padding: 20px 0;
@@ -115,6 +116,7 @@ label {
 .center {
     margin: 0 auto;
     width: fit-content;
+    padding: 20px 0 100px 0;
 }
 
 .btn-light {
