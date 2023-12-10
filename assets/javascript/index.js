@@ -34,17 +34,20 @@ const team = [
     {
         name: "",
         num: 0,
-        assist: 0
+        assist: 0,
+        position: point
     },
     {
         name: "",
         num: 0,
-        assist: 0
+        assist: 0,
+        position: mid
     },
     {
         name: "",
         num: 0,
-        assist: 0
+        assist: 0,
+        position: anchor
     }
 ]
 
@@ -121,18 +124,23 @@ function printLastTeam() {
 
 function printTeam() {
     // this is where everything gets rendered, starting with point characters.
-    for (let i = 0; i < 3; i++) {
+    for (const player of team) {
         var charTitle = document.createElement("h1");
         charTitle.classList = "charName"
-        var titleText = document.createTextNode(team[i].name);
 
+        var titleText = document.createTextNode(player.name);
         charTitle.replaceChildren(titleText);
 
-        var charPort = document.createElement("img");
-        var assistHtml = document.createElement("h3");
+        player.position.replaceChildren(charTitle)
 
+        var charPort = document.createElement("img");
+        charPort.src = `./assets/images/${player.num}.png`
+        
+        player.position.appendChild(charPort)
+        
         if (assistCheck.checked) {
-            var assist = team[i].assist;
+            var assistHtml = document.createElement("h3");
+            const assist = player.assist;
 
             switch (assist) {
                 case 0:
@@ -145,27 +153,7 @@ function printTeam() {
                     assistHtml.textContent = "C Assist"
                     break
             }
-        }
-
-        switch (i) {
-            case 0:
-                point.replaceChildren(charTitle);
-                charPort.src = "./assets/images/" + pointC.num + ".png"
-                point.appendChild(charPort);
-                point.appendChild(assistHtml);
-                break
-            case 1:
-                mid.replaceChildren(charTitle);
-                charPort.src = "./assets/images/" + midC.num + ".png"
-                mid.appendChild(charPort);
-                mid.appendChild(assistHtml);
-                break
-            case 2:
-                anchor.replaceChildren(charTitle);
-                charPort.src = "./assets/images/" + anchorC.num + ".png"
-                anchor.appendChild(charPort);
-                anchor.appendChild(assistHtml);
-                break
+            player.position.appendChild(assistHtml)
         }
     }
 }
@@ -207,8 +195,6 @@ const ButtonHandler = (e) => {
     newTeam();
     printTeam();
 }
-
-
 
 btn.addEventListener("click", ButtonHandler)
 seasonOne.addEventListener("click", checkboxHandler)
