@@ -1,3 +1,10 @@
+# version 1.3.1 dec 10 2023
+## **Notes**:
+Found some not so great renderings when using the site recently and wanted to fix it.
+### **Changed**:
+- some of the css style options for more consistent page renders at all sizes.
+- fixed some other oddities that would happen on rendering a new team, mainly heights suddenly popping in when an image was rendered
+
 # version 1.3 apr 30 2023
 
 ## **Notes**:

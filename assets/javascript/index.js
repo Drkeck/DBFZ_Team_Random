@@ -171,28 +171,18 @@ function printTeam() {
     }
 }
 
-
 function newTeam() {
-    let newRoaster = roaster.map(ele => ele);
-    let bool = false
-    for (let i = 0; i < 3;) {
+    
+    let newRoaster = roaster.filter(ele => {
+        const checker = blacklist.includes(`${ele.num}`);
+        if (checker) {
+            return
+        }
+        return ele
+    })
+    console.log(newRoaster)
+    for (let i = 0; i < 3; i++) {
         let n = Math.floor(Math.random() * newRoaster.length)
-        bool = false
-
-        // =================================
-        // need to add a way of validating against blacklist array.
-        // sure there area plenty of ways of doing this one.
-        // not sure how i am able to do it currently will check back later
-        // 5/1/2023 
-        // =================================
-
-        blacklist.forEach(ele => {
-            const isSame = (ele == newRoaster[n].num)
-
-            if (isSame) {
-                bool = true
-            }
-        })
 
         if (i === 0) {
             pointC.name = newRoaster[n].name
@@ -214,10 +204,6 @@ function newTeam() {
             if (anchorC.name === pointC.name || anchorC.name == midC.name) {
                 i--
             }
-        }
-
-        if (!bool) {
-            i++
         }
     }
 }
