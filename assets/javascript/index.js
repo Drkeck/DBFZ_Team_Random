@@ -26,7 +26,7 @@ const hidden = document.getElementById('hidden')
 // characters from roaster.js
 const roaster = Characters
 
-const lastTeam = []
+let lastTeam = []
 
 let blacklist = []
 
@@ -51,10 +51,6 @@ const team = [
     }
 ]
 
-let pointC = team[0];
-let midC = team[1];
-let anchorC = team[2];
-
 function checkerHandler(children, checked) {
     for (const child of children) {
         child.children[0].checked = checked
@@ -78,15 +74,12 @@ function checkboxHandler(e) {
     switch (name) {
         case 'season-1':
             checkerHandler(seasonOnelist.children, checked)
-
             break
         case 'season-2':
             checkerHandler(seasonTwolist.children, checked)
-
             break
         case 'season-3':
             checkerHandler(seasonThreelist.children, checked)
-
             break
         default:
             if (checked != undefined) {
@@ -98,21 +91,20 @@ function checkboxHandler(e) {
 
 function printLastTeam() {
     lastRoll.replaceChildren()
-    for (let i = 0; i < 3; i++) {
-        // This is where we will build the element.
+    for (const player of lastTeam) {
 
         // =Container=
         var characterContainer = document.createElement("div");
 
         // =Image=
         var lastCharacter = document.createElement("img");
-        lastCharacter.src = "./assets/images/" + lastTeam[i].num + ".png";
+        lastCharacter.src = "./assets/images/" + player.num + ".png";
         characterContainer.appendChild(lastCharacter);
 
         // =Assist=
         if (assistCheck.checked) {
             var assistContainer = document.createElement("h4");
-            assistContainer.innerText = lastTeam[i].assist === 0 ? 'A' : lastTeam[i].assist === 1 ? 'B' : 'C';
+            assistContainer.innerText = player.assist === 0 ? 'A' : player.assist === 1 ? 'B' : 'C';
             characterContainer.appendChild(assistContainer);
         }
 
@@ -135,7 +127,7 @@ function printTeam() {
 
         var charPort = document.createElement("img");
         charPort.src = `./assets/images/${player.num}.png`
-        
+
         player.position.appendChild(charPort)
         
         if (assistCheck.checked) {
@@ -182,12 +174,8 @@ function newTeam() {
 const ButtonHandler = (e) => {
     // this is for saving the last team to refrence in a component
     if (team[0].name) {
-        const currentTeam = [{ num: team[0].num, assist: team[0].assist }, { num: team[1].num, assist: team[0].assist }, { num: team[2].num, assist: team[2].assist }] // save the team in a variable that isnt a reference.
-        lastTeam.pop()
-        lastTeam.pop()
-        lastTeam.pop()
-        lastTeam.push(...currentTeam) // take the non refernece and push it up.
-
+        const currentTeam = [{ num: team[0].num, assist: team[0].assist }, { num: team[1].num, assist: team[0].assist }, { num: team[2].num, assist: team[2].assist }]
+        lastTeam = currentTeam 
         // this is when we build the last team element.
         printLastTeam()
     }
