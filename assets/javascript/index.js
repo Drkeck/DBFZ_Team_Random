@@ -53,15 +53,14 @@ let midC = team[1];
 let anchorC = team[2];
 
 function checkerHandler(children, checked) {
-    for (let i = 0; i < children.length; i++) {
-        const child = children[i].children[0]
-        child.checked = checked
-        if (!checked) {
-            blacklist.push(child.value)
+    for (const child of children) {
+        child.children[0].checked = checked
+        if (!child.children[0].checked) {
+            blacklist.push(child.children[0].value)
             continue
         }
         const newlist = blacklist.filter(list => {
-            if (child.value === list) {
+            if (child.children[0].value === list) {
                 return
             }
             return list
@@ -88,7 +87,7 @@ function checkboxHandler(e) {
             break
         default:
             if (checked != undefined) {
-                checkerHandler([{ children: [e.target] }], e.target.checked)
+                checkerHandler([{ children: [e.target] }], checked)
             }
             break
     }
@@ -180,32 +179,16 @@ function newTeam() {
         }
         return ele
     })
-    console.log(newRoaster)
-    for (let i = 0; i < 3; i++) {
-        let n = Math.floor(Math.random() * newRoaster.length)
+    for (const position of team) {
+        const n = Math.floor(Math.random() * newRoaster.length)
 
-        if (i === 0) {
-            pointC.name = newRoaster[n].name
-            pointC.num = newRoaster[n].num
-            pointC.assist = Math.floor(Math.random() * 6 / 2)
-        }
-        else if (i === 1) {
-            midC.name = newRoaster[n].name
-            midC.num = newRoaster[n].num
-            midC.assist = Math.floor(Math.random() * 6 / 2)
-            if (midC.name === pointC.name) {
-                i--
-            }
-        }
-        else {
-            anchorC.name = newRoaster[n].name
-            anchorC.num = newRoaster[n].num
-            anchorC.assist = Math.floor(Math.random() * 6 / 2)
-            if (anchorC.name === pointC.name || anchorC.name == midC.name) {
-                i--
-            }
-        }
-    }
+        position.name = newRoaster[n].name;
+        position.num = newRoaster[n].num;
+        position.assist = Math.floor(Math.random() * 6 / 2)
+
+        const evenNewerRoaster = newRoaster.filter(character => character.num != newRoaster[n].num)
+        newRoaster = evenNewerRoaster
+    }   
 }
 
 const ButtonHandler = (e) => {
