@@ -34,28 +34,32 @@ const team = [
     {
         name: "",
         num: 0,
-        assist: 0,
+        assist: '',
         position: point
     },
     {
         name: "",
         num: 0,
-        assist: 0,
+        assist: '',
         position: mid
     },
     {
         name: "",
         num: 0,
-        assist: 0,
+        assist: '',
         position: anchor
     }
 ]
 
+const assistsArray = ['A', 'B', 'C']
+
 function checkerHandler(children, checked) {
     for (const child of children) {
         child.children[0].checked = checked
-        if (!child.children[0].checked) {
-            blacklist.push(child.children[0].value)
+        if (!checked) {
+            if (!blacklist.includes(child.children[0].value)) {
+                blacklist.push(child.children[0].value)
+            }
             continue
         }
         const newlist = blacklist.filter(list => {
@@ -67,6 +71,7 @@ function checkerHandler(children, checked) {
         blacklist = newlist
     }
 }
+
 
 function checkboxHandler(e) {
     const name = e.target.name;
@@ -92,22 +97,19 @@ function checkboxHandler(e) {
 function printLastTeam() {
     lastRoll.replaceChildren()
     for (const player of lastTeam) {
-
         // =Container=
         var characterContainer = document.createElement("div");
-
+        characterContainer.classList = "oldChraCont"
         // =Image=
         var lastCharacter = document.createElement("img");
         lastCharacter.src = "./assets/images/" + player.num + ".png";
         characterContainer.appendChild(lastCharacter);
-
         // =Assist=
         if (assistCheck.checked) {
             var assistContainer = document.createElement("h4");
-            assistContainer.innerText = player.assist === 0 ? 'A' : player.assist === 1 ? 'B' : 'C';
+            assistContainer.innerText = player.assist
             characterContainer.appendChild(assistContainer);
         }
-
         // =Append=
         lastRoll.appendChild(characterContainer);
     }
@@ -119,9 +121,7 @@ function printTeam() {
     for (const player of team) {
         var charTitle = document.createElement("h1");
         charTitle.classList = "charName"
-
-        var titleText = document.createTextNode(player.name);
-        charTitle.replaceChildren(titleText);
+        charTitle.innerText = player.name;
 
         player.position.replaceChildren(charTitle)
 
@@ -129,29 +129,18 @@ function printTeam() {
         charPort.src = `./assets/images/${player.num}.png`
 
         player.position.appendChild(charPort)
-        
+
         if (assistCheck.checked) {
             var assistHtml = document.createElement("h3");
             const assist = player.assist;
+            assistHtml.textContent = `${assist} Assist`
 
-            switch (assist) {
-                case 0:
-                    assistHtml.textContent = "A Assist"
-                    break
-                case 1:
-                    assistHtml.textContent = "B Assist"
-                    break
-                default:
-                    assistHtml.textContent = "C Assist"
-                    break
-            }
             player.position.appendChild(assistHtml)
         }
     }
 }
 
 function newTeam() {
-    
     let newRoaster = roaster.filter(ele => {
         const checker = blacklist.includes(`${ele.num}`);
         if (checker) {
@@ -164,22 +153,20 @@ function newTeam() {
 
         position.name = newRoaster[n].name;
         position.num = newRoaster[n].num;
-        position.assist = Math.floor(Math.random() * 6 / 2)
+        position.assist = assistsArray[Math.floor(Math.random() * 6 / 2)]
 
         const evenNewerRoaster = newRoaster.filter(character => character.num != newRoaster[n].num)
         newRoaster = evenNewerRoaster
-    }   
+    }
 }
 
 const ButtonHandler = (e) => {
     // this is for saving the last team to refrence in a component
     if (team[0].name) {
-        const currentTeam = [{ num: team[0].num, assist: team[0].assist }, { num: team[1].num, assist: team[0].assist }, { num: team[2].num, assist: team[2].assist }]
-        lastTeam = currentTeam 
-        // this is when we build the last team element.
+        const currentTeam = team
+        lastTeam = currentTeam
         printLastTeam()
     }
-    // will work on this part later cause this is the only way i can get it to work so far
     newTeam();
     printTeam();
 }

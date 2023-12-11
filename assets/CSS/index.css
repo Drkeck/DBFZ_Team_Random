@@ -57,6 +57,10 @@ img {
     border-radius: 10px;
 }
 
+.oldChraCont {
+    width: 75px;
+}
+
 .oldTeam section {
     display: flex;
     justify-content: space-evenly;
