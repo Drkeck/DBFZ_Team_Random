@@ -6,17 +6,16 @@ const anchor = document.getElementById('Anchor');
 // interation layer
 const btn = document.getElementById('btn');
 const assistCheck = document.getElementById('assist');
-
-// seasons
+    // seasons
 const seasonOne = document.getElementById('season-1')
 const seasonOnelist = document.getElementById('season-1-list')
-//
+    //
 const seasonTwo = document.getElementById('season-2')
 const seasonTwolist = document.getElementById('season-2-list')
-//
+    //
 const seasonThree = document.getElementById('season-3')
 const seasonThreelist = document.getElementById('season-3-list')
-//
+    //
 const a21check = document.getElementById('android21')
 
 // last roll layer
