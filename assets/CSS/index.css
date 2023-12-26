@@ -57,6 +57,10 @@ img {
     border-radius: 10px;
 }
 
+.oldChraCont {
+    width: 75px;
+}
+
 .oldTeam section {
     display: flex;
     justify-content: space-evenly;
@@ -137,6 +141,10 @@ label {
 
 
 @media screen and (max-width: 800px) {
+    .Container {
+        min-height: 280px;
+    }
+
     img {
         max-height: 200px;
     }
@@ -147,14 +155,18 @@ label {
 }
 
 @media screen and (max-width: 680px) {
+    html {
+        background-position: bottom;
+    }
+
     .title-row {
         margin: 20% auto 0;
     }
 
     .Container {
+        min-height: 220px;
         margin: 10px 4%;
         padding-top: 20px;
-        background-color: var(--backdrop);
         border-radius: 50px;
     }
 
@@ -176,6 +188,10 @@ label {
 }
 
 @media screen and (max-width: 500px){
+
+    .Container {
+        min-height: 188px;
+    }
 
     .charName {
         font-size: 14px;
