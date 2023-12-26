@@ -1,3 +1,13 @@
+# version 1.3.2 dec 26 2023
+
+## **Notes**:
+nothing to major in this update it was largely a refactor of what already existed to make it more fluid and purpouseful.
+
+## **Changed**:
+- some CSS around heights of the current random team and the last team have changed to make the page more consistent.
+- refactored most of the logic to be more compact and understood.
+- tried to change the CSS around other device sizes so little to no visual oddities occur.
+
 # version 1.3.1 dec 10 2023
 ## **Notes**:
 Found some not so great renderings when using the site recently and wanted to fix it.
