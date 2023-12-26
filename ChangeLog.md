@@ -3,7 +3,7 @@
 ## **Notes**:
 nothing to major in this update it was largely a refactor of what already existed to make it more fluid and purpouseful.
 
-## **Changed**:
+### **Changed**:
 - some CSS around heights of the current random team and the last team have changed to make the page more consistent.
 - refactored most of the logic to be more compact and understood.
 - tried to change the CSS around other device sizes so little to no visual oddities occur.
